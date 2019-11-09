@@ -25,13 +25,13 @@ makeCacheMatrix <- function(x = matrix()) {
 ## answer in cache before continuing
 
 cacheSolve <- function(x, ...) {
-    m <- x$getmean()
-    if(!is.null(m)) {
+    i <- x$getinverse()
+    if(!is.null(i)) {
         message("getting cached data")
-        return(m)
+        return(i)
     }
     data <- x$get()
-    m <- mean(data, ...)
-    x$setmean(m)
-    m
+    i <- solve(data, ...)
+    x$setinverse(i)
+    i
 }
