@@ -7,17 +7,17 @@
 ## resulting R object into cacheSolve.
 
 makeCacheMatrix <- function(x = matrix()) {
-    m <- NULL
+    inverse <- NULL
     set <- function(y) {
         x <<- y
-        m <<- NULL
+        inverse <<- NULL
     }
     get <- function() x
-    setmean <- function(mean) m <<- mean
-    getmean <- function() m
+    setinverse <- function(result) inverse <<- result
+    getinverse <- function() inverse
     list(set = set, get = get,
-         setmean = setmean,
-         getmean = getmean)
+         setinverse = setinverse,
+         getinverse = getinverse)
 }
 
 
